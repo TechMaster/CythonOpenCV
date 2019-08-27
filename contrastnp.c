@@ -1280,7 +1280,7 @@ static PyObject *__pyx_pf_10contrastnp_adjust_contrast(CYTHON_UNUSED PyObject *_
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_img, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_height = __pyx_t_2;
@@ -1295,7 +1295,7 @@ static PyObject *__pyx_pf_10contrastnp_adjust_contrast(CYTHON_UNUSED PyObject *_
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_img, __pyx_n_s_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_width = __pyx_t_1;
@@ -2047,7 +2047,7 @@ if (!__Pyx_RefNanny) {
   #endif
 
   /* "contrastnp.pyx":3
- * # cython: language_level=4
+ * # cython: language_level=3, boundscheck=False
  * 
  * import cv2             # <<<<<<<<<<<<<<
  * import math
@@ -2095,7 +2095,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "contrastnp.pyx":1
- * # cython: language_level=4             # <<<<<<<<<<<<<<
+ * # cython: language_level=3, boundscheck=False             # <<<<<<<<<<<<<<
  * 
  * import cv2
  */

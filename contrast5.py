@@ -1,13 +1,13 @@
 import cv2
 import time
-import contrast_c
+import contrast_ceil
 import numpy as np
 
 img = cv2.imread('tiger_low_constrast.jpg', cv2.IMREAD_GRAYSCALE)
-
+print(f'width = {img.shape[1]}, height = {img.shape[0]}')
 start_time = time.time()
 
-outimg = contrast_c.adjust_contrast(img, 3)
+outimg = contrast_ceil.adjust_contrast(img, 3)
 
 elapsed_time = time.time() - start_time
 print(elapsed_time)

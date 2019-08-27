@@ -1,18 +1,16 @@
 # cython: language_level=3, boundscheck=False
-
+# Chưa tối ưu triệt để, chỉ biên dịch ra C
 import cv2
-cdef extern from "math.h":
-    double ceil(double x)
+import math
 
-cpdef unsigned char[:, :] adjust_contrast(unsigned char[:, :] img, float contrast):
-    cdef int x, y, w, h, b
+def adjust_contrast(img, contrast):
     height = img.shape[0]
     width = img.shape[1]
-    for y in range(0, height):
-        for x in range(0, width):
-            b = int(ceil(img[y, x] * contrast))
+
+    for i in range(height):
+        for j in range(width):
+            a = img.item(i, j)
+            b = math.ceil(a * contrast)
             if b > 255:
                 b = 255
-            img[y, x] = b
-
-    return img
+            img.itemset((i, j), b)
