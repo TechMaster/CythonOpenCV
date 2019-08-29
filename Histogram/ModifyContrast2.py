@@ -26,6 +26,7 @@ scale = 255 / (a_high - a_low)
 table = np.array([0 if i <= a_low else 255 if i >= a_high else float(i - a_low) * scale
                   for i in range(256)]).astype("uint8")
 
+# LUT: viết tắt Look Up Table
 img_out = cv2.LUT(img, table) # Chạy cực chậm
 
 cv2.imshow('image', img_out)
