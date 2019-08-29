@@ -1,10 +1,11 @@
 import cv2
-import math
 import time
+from pathlib import Path
 
-img = cv2.imread('tiger_low_constrast.jpg', cv2.IMREAD_GRAYSCALE)
+img_path = str(Path(__file__).parent.parent / 'Images/african_leopard_bw_low.jpg')
+
+img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
 contrast = 2
-
 start_time = time.time()
 img = img * contrast
 img[img > 255] = 255
