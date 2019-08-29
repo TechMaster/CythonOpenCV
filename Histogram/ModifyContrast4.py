@@ -16,6 +16,7 @@ fig = plt.figure(figsize=(12, 8))
 plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1, hspace=0.2, wspace=0.1)
 ax1 = fig.add_subplot(221)
 ax1.set(title="Histogram Before")
+ax1.set_xlim([0, 255])
 ax1.fill_between(range(256), 0, hist.ravel())
 
 ax2 = fig.add_subplot(222)
@@ -28,6 +29,7 @@ img_out = np.array(contrast.auto_contrast(img))
 
 hist_after = cv2.calcHist([img_out], [0], None, [256], [0, 256])
 ax3 = fig.add_subplot(223)
+ax3.set_xlim([0, 255])
 ax3.fill_between(range(256), 0, hist_after.ravel())
 ax3.set(title="Histogram After")
 

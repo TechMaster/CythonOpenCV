@@ -1,8 +1,8 @@
 import cv2
 import time
-import numpy as np
-from pathlib import Path
 import matplotlib.pyplot as plt
+from pathlib import Path
+
 
 img_path = str(Path(__file__).parent.parent / 'Images/african_leopard_bw_low.jpg')
 
