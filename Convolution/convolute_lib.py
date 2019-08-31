@@ -74,7 +74,7 @@ Khác với convolve_np3 ở chỗ có padding zero ở viền ảnh gốc để
 '''
 
 
-def convolve_np4(img, kernel, scale=255):
+def convolve_np4(img, kernel):
     img_height = img.shape[0]
     img_width = img.shape[1]
 
