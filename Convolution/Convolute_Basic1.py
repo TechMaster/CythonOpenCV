@@ -3,10 +3,6 @@ import numpy as np
 import convolute_lib as cnn
 
 
-'''
-Code demo cho ví dụ trong bài viết này
-https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d
-'''
 in_img = np.array([[1, 0, 0, 1, 0],
                    [0, 1, 1, 0, 1],
                    [1, 0, 1, 0, 1],
@@ -18,12 +14,8 @@ kernel = np.array([[1, 0, 0],
                    [0, 1, 1],
                    [1, 0, 1]])
 
-identity = np.array((
-    [0, 0, 0],
-    [0, 1, 0],
-    [0, 0, 0]))
 
-out_img = cnn.convolve_np4(in_img, identity)
+out_img = cnn.convolve_nest_loop(in_img, kernel)
 with np.printoptions(suppress=True):
     print(out_img)
 
