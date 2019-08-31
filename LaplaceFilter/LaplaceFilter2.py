@@ -26,7 +26,7 @@ for i in np.arange(2, height - 2):
 
 elapsed_time = time.time() - start_time
 print(elapsed_time)
-
+print(np.min(img), np.max(img))
 cv2.imshow('image', img_out)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
