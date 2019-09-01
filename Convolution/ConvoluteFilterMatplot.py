@@ -1,4 +1,5 @@
 from pathlib import Path
+import matplotlib.pyplot as plt
 import cv2
 import numpy as np
 
@@ -55,31 +56,56 @@ laplacian = (1.0 / 16) * np.array(
      [ 0, -1, -2, -1,  0],
      [ 0,  0, -1,  0,  0]])
 
-sobelX = np.array((
+sobelLeft = np.array((
     [-1, 0, 1],
     [-2, 0, 2],
     [-1, 0, 1]))
 
-sobelY = np.array((
+sobelRight = np.array((
+    [1, 0, -1],
+    [2, 0, -2],
+    [1, 0, -1]))
+
+sobelTop = np.array((
     [-1, -2, -1],
     [ 0,  0,  0],
     [ 1,  2,  1]))
 
+sobelBottom = np.array((
+    [ 1,  2,  1],
+    [ 0,  0,  0],
+    [-1, -2, -1]))
+
 filters = [
-    ("identity", identity),
-    ("edge", edge),
-    ("box blur", boxblur),
-    ("square", square),
-    ("small blur", smallBlur)
+    ("Identity", identity),
+    ("Edge", edge),
+    ("Box Blur", boxblur),
+    ("Square", square),
+    ("Gaussian", gaussian),
+    ("Emboss", emboss),
+    ("Small blur", smallBlur),
+    ("Large blur", largeBlur),
+    ("Sharpen", sharpen),
+    ("Laplacian", laplacian),
+    ('Sobel Left', sobelLeft),
+    ('Sobel Right', sobelRight),
+    ('Sobel Top', sobelTop),
+    ('Sobel Bottom', sobelBottom)
 ]
 
-#print(cv2.getBuildInformation())
+fig = plt.figure(figsize=(12, 8))
+fig.subplots_adjust(hspace=0.3, wspace=0.1)
+
+for i, filter in enumerate(filters):
+    axes = fig.add_subplot(3, 5, i+1)
+    axes.set(title=filter[0])
+    axes.grid(False)
+    axes.set_xticks([])
+    axes.set_yticks([])
+    img_out = cnn.convolve_np4(img, filter[1])
+
+    axes.imshow(img_out, cmap='gray', vmin=0, vmax=255)
 
 
-img_out = cnn.convolve_np4(img, laplacian)
 
-img_out = cv2.convertScaleAbs(img_out)
-
-cv2.imshow('Blur', img_out)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+plt.show()
